@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script
+            src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+            crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/cosmo/bootstrap.min.css"
+          integrity="sha384-uhut8PejFZO8994oEgm/ZfAv0mW1/b83nczZzSwElbeILxwkN491YQXsCFTE6+nx" crossorigin="anonymous">
+
+    <script>
+      var ob = {
+        person:
+          {
+            name: {first: 'FirstName', middleInitial: 'I', lastName: 'LastName'},
+            location: {city: 'Las Vegas', state: 'IL', zip: '89134'},
+          }
+      };
+
+      function search(text) {
+        $('#SearchResults').val(dive(text, ob));
+      }
+
+      var dive = (target, value) => {
+        var ar;
+        if (target.indexOf('.')) {
+          ar = target.split(".");
+        } else {
+          ar = [target]
+        }
+
+        if (ar[0] === target) {
+          if (typeof (value[ar[0]]) == "undefined") {
+            return "No Value";
+          }
+
+          return value[ar[0]];
+        } else if (ar.length > 1) {
+
+          var newValue = value[ar[0]];
+          var newTarget = ar.slice(1, ar.length).join('.');
+          return diveDeeper(newTarget, newValue)
+        }
+      };
+
+      var diveDeeper = function (target, value) {
+        return dive(target, value)
+      };
+    </script>
+</head>
+<body>
+<div class="container">
+    <div class="inputWrapper">
+        <div class="form-group">
+            <label for="SearchText">Search Text</label>
+
+            <input class="form-control" id="SearchText" type="text" name="searchText" onchange="search($(this).val())">
+        </div>
+        <div class="form-group">
+            <label for="SearchResults">Found</label>
+            <textarea id="SearchResults" style="width:100%;"> </textarea>
+        </div>
+        <pre>
+        <code class="code">
+            {
+              person: {
+                    name: {first: 'FirstName', middleInitial: 'I', lastName: 'LastName'},
+                    location: {city: 'Las Vegas', state: 'IL', zip: '89134'}
+                }
+            };
+        </code>
+        </pre>
+    </div>
+</div>
+
+</body>
+</html>
