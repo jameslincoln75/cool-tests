@@ -1,0 +1,72 @@
+@import '../node_modules/bootstrap/scss/bootstrap.scss';
+
+body {
+  background-color: #ffffff !important;
+  overflow-y: scroll;
+}
+
+.PostBox {
+  max-width: 600px;
+  margin: 20px auto;
+
+  textarea, button {
+    border-radius: 0;
+  }
+
+  button {
+    margin-top: 5px;
+  }
+}
+.PostCountBox{
+  max-width: 600px;
+  margin: 20px auto;
+}
+.Feed {
+  max-width: 600px;
+  margin: 20px auto;
+  display:flex;
+  flex-direction:column-reverse;
+
+
+  .FeedItem {
+    width: 100%;
+
+    background-color: #f9f9f9;
+    border: 1px solid #f0f0f0;
+    margin: 10px 0;
+    display:flex;
+    flex-direction: row;
+    flex-wrap:wrap;
+    align-items: center;
+
+
+    >*{
+      flex-shrink:0;
+      width:100%;
+    }
+
+    &Header{
+      background-color: white;
+      padding:10px;
+      display:flex;
+      flex-direction:row;
+      align-items: center;
+
+      &--user{
+        font-weight:bold;
+        margin-right:10px;
+      }
+      &--timestamp{
+        font-size:0.8em;
+        color:#999999;
+      }
+
+    }
+
+    &Body{
+      min-height: 300px;
+      text-align:center;
+      font-size:1.2em;
+    }
+  }
+}
