@@ -10,7 +10,8 @@ class FeedItem extends Component {
   }
 
   render() {
-    let ts = moment.unix(this.props.record.timestamp).format("MM/DD/YY");
+    let ts = moment.unix(this.props.record.timestamp).format("MM/DD/YY h:mA");
+
     return (
       <article className="FeedItem">
         <div className="FeedItemHeader">

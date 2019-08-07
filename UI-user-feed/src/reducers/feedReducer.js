@@ -1,7 +1,5 @@
 import {
-  GET_ERRORS,
   POSTS_ADD,
-  POSTS_GET,
   POSTS_RETRIEVED
 } from "../actions/types";
 

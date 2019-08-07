@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import {BrowserRouter as Router} from 'react-router-dom';
 import {Provider} from 'react-redux'
 import store from './store'
-import jQuery from 'jquery';
 import './App.scss';
 import Navbar from './components/Navbar'
 import PostBox from "./components/PostBox";

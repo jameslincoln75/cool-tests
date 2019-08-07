@@ -1,8 +1,6 @@
 import {
   GET_ERRORS,
-  POSTS_GET,
   POSTS_RETRIEVED,
-  POSTS_ADD,
 } from './types'
 import Fetcher from "../Fetcher";
 
